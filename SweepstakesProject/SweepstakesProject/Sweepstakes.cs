@@ -8,15 +8,25 @@ namespace SweepstakesProject
 {
     class Sweepstakes
     {
-        string sweepstakes;
-        
+        int entries = 0;
+        int winner;
+        Dictionary<int, Contestant> dict;
 
-        Dictionary<int, string> dict = new Dictionary<int, string>();
-
+        public Sweepstakes(string title)
+        {
+            Contestant contestant = new Contestant();
+            dict = new Dictionary<int, Contestant>();
+        }
 
         public void Registercontestant(Contestant contestant)
         {
-
+            dict.Add(entries, contestant);
+            entries++;
+        }
+        public void pickWinner()
+        {
+            Random rnd = new Random();
+            winner = rnd.Next(0, dict.Count);
         }
 
         public void PrintContestantInfo(Contestant contestant)
