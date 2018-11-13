@@ -9,8 +9,8 @@ namespace SweepstakesProject
     public class Contestant
     {
         public string firstName;
-        string lastName;
-        string email;
-        int entryNum;
+        public string lastName;
+        public string email;
+        public int entryNum;
     }
 }

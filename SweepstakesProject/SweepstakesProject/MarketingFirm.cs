@@ -13,9 +13,13 @@ namespace SweepstakesProject
         {
             _sweepstakes = sweepstakes;
         }
-        public void InsertSweepstakes()
+        public void InsertSweepstakes(Sweepstakes sweepstakes)
         {
-            _sweepstakes.InsertSweepstakes();
+            _sweepstakes.InsertSweepstakes(sweepstakes);
+        }
+        public void GetSweepstakes()
+        {
+
         }
     }
 }
