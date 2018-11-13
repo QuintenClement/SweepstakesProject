@@ -13,14 +13,18 @@ namespace SweepstakesProject
         Dictionary<int, Contestant> dict;
 
         public Sweepstakes(string name)
-        {
-            Contestant contestant = new Contestant();
+        { 
             dict = new Dictionary<int, Contestant>();
         }
 
+        public void MakeContestant()
+        {
+            Contestant _contestant = new Contestant();
+        }
         public void Registercontestant(Contestant contestant)
         {
             dict.Add(entries, contestant);
+            contestant.entryNum = entries;
             entries++;
         }
         public void pickWinner()
