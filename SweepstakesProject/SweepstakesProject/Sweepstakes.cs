@@ -10,7 +10,7 @@ namespace SweepstakesProject
     {
         int entries = 0;
         int winner;
-        Dictionary<int, Contestant> dict;
+        Dictionary<int, Contestant> contestants;\\
 
         public Sweepstakes(string name)
         { 

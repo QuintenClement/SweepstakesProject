@@ -17,9 +17,53 @@ namespace SweepstakesProject
         {
             _sweepstakes.InsertSweepstakes(sweepstakes);
         }
-        public void GetSweepstakes()
+        public Sweepstakes GetSweepstakes(Sweepstakes sweepstakes)
+        {
+            return _sweepstakes.GetSweepstakes(sweepstakes);
+        }
+
+        public void RunProgram()
+        {
+            UI.Menu();
+            
+            
+        }
+        public static void MakeNewSweepstakes()
+        {
+            UI.SelectDataStorageType();
+        }
+        public static void NewQueueDataType()
         {
 
         }
+
+        public static void NewStackDataType()
+        {
+            UI.NameNewSweepstakes();
+            
+            MarketingFirm.
+        }
+
+        public static void PickWinner()
+        {
+
+        }
+
+        public static void PreviousSweepstakes()
+        {
+
+        }
+
+        public static void RegisterNewContestant()
+        {
+
+        }
+
+        
+
+
+
+
+
     }
 }

@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace SweepstakesProject
 {
-    public class UI
+    public static class UI
     {
-        Sweepstakes sweepstakes;
-        public void EnterSweep()
+        
+        public static void EnterSweep()
         {
             Console.WriteLine("What Sweepstakes would you like to join?");
             Console.ReadLine();
         }
-        public void GetInfo(Contestant contestant)
+        public static void GetInfo(Contestant contestant)
         {           
             Console.WriteLine("Please enter your first name:");
             contestant.firstName = Console.ReadLine();
@@ -23,18 +23,36 @@ namespace SweepstakesProject
             Console.WriteLine("Perfect! Almost done, can you please enter your email address:");
             contestant.email = Console.ReadLine();
         }
-
-        public void SelectDataStorageType()
+        public static void NameNewSweepstakes()
         {
-            Console.WriteLine("Hello! Welcome to your Sweepstakes Manager Tool.");
-            Console.WriteLine("Please select the type of data structure you would like to use.");
-            Console.WriteLine("")
+            Console.WriteLine("What would you like to name your new Sweepstakes?");
+
+        }
+
+        public static void SelectDataStorageType()
+        {
+            Console.WriteLine("Please select the type of data structure you would like to use. (Stack or Queue)");
+            string dataType = Console.ReadLine();
+            dataType = dataType.ToLower();
+            if (dataType != "stack" || dataType != "queue")
+            {
+                SelectDataStorageType();
+            }
+            else if (dataType == "stack")
+            {
+                MarketingFirm.NewStackDataType();
+            }
+            else if (dataType == "queue")
+            {
+                MarketingFirm.NewQueueDataType();
+            }
+
             
         }
 
-        public void Menu()
+        public static void Menu()
         {
-            
+            Console.WriteLine("Hello! Welcome to your sweepstakes manager tool!");
             Console.WriteLine("Menu:");
             Console.WriteLine("1: Make new Sweepstakes");
             Console.WriteLine("2: Register a new contestant");
@@ -44,16 +62,16 @@ namespace SweepstakesProject
             switch (num)
             {
                 case 1:
-                    MakeNewSweepstakes();
+                    MarketingFirm.MakeNewSweepstakes();
                     break;
                 case 2:
-                    RegisterNewContestant();
+                    MarketingFirm.RegisterNewContestant();
                     break;
                 case 3:
-                    PickWinner();
+                    MarketingFirm.PickWinner();
                     break;
                 case 4:
-                    PreviousSweepstakes();
+                    MarketingFirm.PreviousSweepstakes();
                     break;
                 default:
                     Console.WriteLine("Please enter a valid response.(1,2,3,4)");
@@ -61,24 +79,19 @@ namespace SweepstakesProject
                     break;
             }
         }
-        public void MakeNewSweepstakes()
-        {
-            string name = Console.ReadLine();
-            Sweepstakes sweepstakes = new Sweepstakes(name);
-            Menu();
-        }
-        public void RegisterNewContestant()
+        
+        public static void RegisterNewContestant()
         {
             Contestant contestant = new Contestant();
             GetInfo(contestant);
             Console.WriteLine("Awesome! Your registered! You will be notified if you have won!");
             Menu();
         }
-        public void PreviousSweepstakes()
+        public static void PreviousSweepstakes()
         {
 
         }
-        public void PickWinner()
+        public static void PickWinner()
         {
            
         }
