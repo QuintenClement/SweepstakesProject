@@ -9,7 +9,9 @@ namespace SweepstakesProject
     class Program
     {
         static void Main(string[] args)
-        {
+        { 
+            SelectDataType.ChooseDataType();
+            UI.Menu();
         }
     }
 }

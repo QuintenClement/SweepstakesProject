@@ -27,19 +27,19 @@ namespace SweepstakesProject
             contestant.entryNum = entries;
             entries++;
         }
-        public void PickWinner()
+        public int PickWinner()
         {
             Random rnd = new Random();
             int winner = rnd.Next(0, contestants.Count);
-            PrintContestantInfo();
-            
+            PrintContestantInfo(winner);
+            return winner;
         }
 
-        public void PrintContestantInfo()
+        public void PrintContestantInfo(int winner)
         {
             if (contestants.ContainsKey(winner).Equals(true))
             {
-                Console.Write(contestants.Values);
+                Console.WriteLine(contestants.Values);
             }
             else
             {

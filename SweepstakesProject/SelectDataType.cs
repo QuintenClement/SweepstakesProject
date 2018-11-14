@@ -17,11 +17,8 @@ namespace SweepstakesProject
             UI.SelectDataStorageType();
             string dataType = Console.ReadLine();
             dataType = dataType.ToLower();
-            if (dataType != "stack" || dataType != "queue")
-            {
-                ChooseDataType();
-            }
-            else if (dataType == "stack")
+            
+            if (dataType == "stack")
             {
                 sweepstakesManager = sweepstakesStackManager;
                 marketingFirm = new MarketingFirm(sweepstakesManager);
@@ -32,7 +29,11 @@ namespace SweepstakesProject
                 sweepstakesManager = sweepstakesQueueManager;
                 marketingFirm = new MarketingFirm(sweepstakesManager);
                 marketingFirm.RunProgram();
-            }            
+            }
+            else if (dataType != "stack" || dataType != "queue")
+            {
+                ChooseDataType();
+            }
         }        
     }
 }
