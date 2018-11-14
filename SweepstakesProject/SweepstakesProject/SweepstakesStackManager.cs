@@ -17,7 +17,7 @@ namespace SweepstakesProject
         {
             _sweepstakes.Push(sweepstakes);
         }
-        public Sweepstakes GetSweepstakes(Sweepstakes sweepstakes)
+        public Sweepstakes GetSweepstakes()
         {
             return _sweepstakes.Pop();
 

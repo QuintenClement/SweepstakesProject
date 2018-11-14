@@ -8,55 +8,71 @@ namespace SweepstakesProject
 {
     class MarketingFirm
     {
-        private ISweepstakesManager _sweepstakes;
+        private ISweepstakesManager sweepstakesManager;
         public MarketingFirm(ISweepstakesManager sweepstakes)
         {
-            _sweepstakes = sweepstakes;
+            sweepstakesManager = sweepstakes;
         }
         public void InsertSweepstakes(Sweepstakes sweepstakes)
         {
-            _sweepstakes.InsertSweepstakes(sweepstakes);
+            sweepstakesManager.InsertSweepstakes(sweepstakes);
         }
-        public Sweepstakes GetSweepstakes(Sweepstakes sweepstakes)
+        public Sweepstakes GetSweepstakes()
         {
-            return _sweepstakes.GetSweepstakes(sweepstakes);
+            return sweepstakesManager.GetSweepstakes();
         }
-
         public void RunProgram()
         {
-            UI.Menu();
-            
-            
+            int num  = UI.Menu();
+            switch (num)
+            {
+                case 1:
+                    MakeNewSweepstakes();
+                    break;
+                case 2:
+                    RegisterNewContestant();
+                    break;
+                case 3:
+                    UI.PickWinner();
+                    PickWinner();
+                    break;
+                case 4:
+                    UI.PreviousSweepstakes();
+                    break;
+                default:
+                    Console.WriteLine("Please enter a valid response.(1,2,3,4)");
+                    UI.Menu();
+                    break;
+            }
         }
-        public static void MakeNewSweepstakes()
+        public void MakeNewSweepstakes()
         {
-            UI.SelectDataStorageType();
+            UI.NameNewSweepstakes();
+            string sweepstakesName = Console.ReadLine();
+            Sweepstakes NewSweepstakes = new Sweepstakes(sweepstakesName);
+            InsertSweepstakes(NewSweepstakes);
         }
-        public static void NewQueueDataType()
-        {
-
-        }
+     
 
         public static void NewStackDataType()
         {
             UI.NameNewSweepstakes();
-            
-            MarketingFirm.
+     
         }
 
-        public static void PickWinner()
+        public void PickWinner()
         {
 
         }
 
-        public static void PreviousSweepstakes()
+        public Sweepstakes PreviousSweepstakes()
         {
-
+            return GetSweepstakes();
         }
 
         public static void RegisterNewContestant()
         {
-
+            UI.RegisterNewContestant();
         }
 
         

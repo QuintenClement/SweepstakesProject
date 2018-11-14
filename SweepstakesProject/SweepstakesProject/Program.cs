@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace SweepstakesProject
 {
-    public interface ISweepstakesManager
+    class Program
     {
-        void InsertSweepstakes(Sweepstakes sweepstakes);
-
-        Sweepstakes GetSweepstakes();
+        static void Main(string[] args)
+        { 
+            SelectDataType.ChooseDataType();
+        }
     }
 }

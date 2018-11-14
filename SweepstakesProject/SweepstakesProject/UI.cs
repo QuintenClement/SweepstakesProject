@@ -32,26 +32,11 @@ namespace SweepstakesProject
         public static void SelectDataStorageType()
         {
             Console.WriteLine("Please select the type of data structure you would like to use. (Stack or Queue)");
-            string dataType = Console.ReadLine();
-            dataType = dataType.ToLower();
-            if (dataType != "stack" || dataType != "queue")
-            {
-                SelectDataStorageType();
-            }
-            else if (dataType == "stack")
-            {
-                MarketingFirm.NewStackDataType();
-            }
-            else if (dataType == "queue")
-            {
-                MarketingFirm.NewQueueDataType();
-            }
-
-            
         }
 
-        public static void Menu()
+        public static int Menu()
         {
+          
             Console.WriteLine("Hello! Welcome to your sweepstakes manager tool!");
             Console.WriteLine("Menu:");
             Console.WriteLine("1: Make new Sweepstakes");
@@ -59,25 +44,7 @@ namespace SweepstakesProject
             Console.WriteLine("3: See previous Sweepstakes");
             Console.WriteLine("4: Pick winner of Sweepstakes");
             int num = Int32.Parse(Console.ReadLine());
-            switch (num)
-            {
-                case 1:
-                    MarketingFirm.MakeNewSweepstakes();
-                    break;
-                case 2:
-                    MarketingFirm.RegisterNewContestant();
-                    break;
-                case 3:
-                    MarketingFirm.PickWinner();
-                    break;
-                case 4:
-                    MarketingFirm.PreviousSweepstakes();
-                    break;
-                default:
-                    Console.WriteLine("Please enter a valid response.(1,2,3,4)");
-                    Menu();
-                    break;
-            }
+            return num;
         }
         
         public static void RegisterNewContestant()
@@ -89,11 +56,13 @@ namespace SweepstakesProject
         }
         public static void PreviousSweepstakes()
         {
+            Console.WriteLine("Here is a previous sweepstakes");
 
         }
         public static void PickWinner()
         {
-           
+            Console.WriteLine("The winner of the sweepstakes is: ");
+            
         }
     }
 }

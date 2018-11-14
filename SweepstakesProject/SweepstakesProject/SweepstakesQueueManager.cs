@@ -17,7 +17,7 @@ namespace SweepstakesProject
         {
             _sweepstakes.Enqueue(sweepstakes);
         }
-        public Sweepstakes GetSweepstakes(Sweepstakes sweepstakes)
+        public Sweepstakes GetSweepstakes()
         {
             return _sweepstakes.Dequeue();
         }

@@ -10,11 +10,11 @@ namespace SweepstakesProject
     {
         int entries = 0;
         int winner;
-        Dictionary<int, Contestant> contestants;\\
+        Dictionary<int, Contestant> contestants;
 
         public Sweepstakes(string name)
         { 
-            dict = new Dictionary<int, Contestant>();
+            contestants = new Dictionary<int, Contestant>();
         }
 
         public void MakeContestant()
@@ -23,26 +23,27 @@ namespace SweepstakesProject
         }
         public void Registercontestant(Contestant contestant)
         {
-            dict.Add(entries, contestant);
+            contestants.Add(entries, contestant);
             contestant.entryNum = entries;
             entries++;
         }
-        public void pickWinner()
+        public void PickWinner()
         {
             Random rnd = new Random();
-            winner = rnd.Next(0, dict.Count);
+            int winner = rnd.Next(0, contestants.Count);
+            PrintContestantInfo();
             
         }
 
-        public void PrintContestantInfo(Contestant contestant)
+        public void PrintContestantInfo()
         {
-            if (dict.ContainsKey(winner).Equals(true))
+            if (contestants.ContainsKey(winner).Equals(true))
             {
-                Console.Write(dict.Values);
+                Console.Write(contestants.Values);
             }
             else
             {
-                pickWinner();
+                PickWinner();
             }
         }
     }
